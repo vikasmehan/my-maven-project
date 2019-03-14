@@ -23,9 +23,9 @@ stages {
 	
 	}
 
-	stage('four') {
+	stage('Integration Testing') {
 		parallel {
-			stage('Integration Testing') {
+			stage('Function Testing') {
 				steps {
 					echo "Hi!! This is Integration Test stage under stage 4"
 				}
