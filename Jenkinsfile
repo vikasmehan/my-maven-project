@@ -3,20 +3,20 @@ pipeline {
 agent any
 
 stages {
-	stage('one') {
+	stage('Build') {
 		steps {
 			echo "Hi!! This is step 1"
 		}
 	}
 
-	stage('two') {
+	stage('Package') {
 		steps {
 			input "Do you want to proceed"
 		}
 	
 	}
 
-	stage('three') {
+	stage('Unit Testing') {
 		steps {
 			echo "Hi!! This is step 3"
 		}
@@ -25,14 +25,14 @@ stages {
 
 	stage('four') {
 		parallel {
-			stage('Unit Test') {
-				steps {
-					echo "Hi!! This is Unit Test stage under stage 4"
-				}
-			}	
-			stage('Integration Test') {
+			stage('Integration Testing') {
 				steps {
 					echo "Hi!! This is Integration Test stage under stage 4"
+				}
+			}	
+			stage('Deploy') {
+				steps {
+					echo "Hi!! This is Deploy stage under stage 4"
 				}	
 			}
 		}
