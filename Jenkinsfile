@@ -3,39 +3,74 @@ pipeline {
 agent any
 
 stages {
-	stage('Build') {
+
+	stage('Unit Testing') {
+		steps {
+			echo "Hi!! This is step 1"
+		}
+	
+	}
+
+	stage('Build - Dependent Components') {
+		steps {
+			echo "Hi!! This is step 1"
+		}
+	}
+	
+	stage('Build - UIMSaaSConfigure') {
+		steps {
+			echo "Hi!! This is step 1"
+		}
+	}
+	
+	stage('Integration Testing') {
+		steps {
+			echo "Hi!! This is step 2"
+		}
+	
+	}
+
+	stage('Deploy - To Dev Setup') {
 		steps {
 			echo "Hi!! This is step 1"
 		}
 	}
 
-	stage('Package') {
+	stage('Sanity Testing') {
 		steps {
-			input "Do you want to proceed"
+			echo "Hi!! This is step 1"
 		}
+	}
 	
+	stage('Deploy - To QA Setup') {
+		steps {
+			echo "Hi!! This is step 1"
+		}
+	}
+	
+	stage('Regression Testing') {
+		steps {
+			echo "Hi!! This is step 1"
+		}
+	}
+	
+	stage('Deploy - To Staging Setup') {
+		steps {
+			echo "Hi!! This is step 1"
+		}
+	}
+	
+	stage('System Testing') {
+		steps {
+			echo "Hi!! This is step 1"
+		}
 	}
 
-	stage('Unit Testing') {
+	stage('Deploy - To Production Setup') {
 		steps {
-			echo "Hi!! This is step 3"
+			echo "Hi!! This is step 1"
 		}
-	
 	}
-
-	stage('Integration Testing') {
-		parallel {
-			stage('Function Testing') {
-				steps {
-					echo "Hi!! This is Integration Test stage under stage 4"
-				}
-			}	
-			stage('Deploy') {
-				steps {
-					echo "Hi!! This is Deploy stage under stage 4"
-				}	
-			}
-		}
-	}	
+		
 }
 }
